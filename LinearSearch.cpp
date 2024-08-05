@@ -10,22 +10,27 @@ void printArray(int array[], int size){
     cout << endl;
 }
 
-int linearSearch(int array[], int size, int key){
+void linearSearch(int array[], int size, int key){
+    int validation = 0;
     for (int i = 0; i < size; i++){
         if (array[i] == key){
-            return i+1;
+            cout << i+1 << " ";
+            validation = 1;
         }
     }
+    if (validation != 1){
+        cout << "Not found" << endl;
+    } else cout << endl;
 }
 
 int main(){
-    int array[]={9, 1, 8, 2, 7, 3, 4, 6, 5};
+    int array[]={9, 1, 8, 2, 7, 3, 4, 6, 5, 2};
     int arraySize = sizeof(array)/sizeof(array[0]);
     int key;
     std::cin >> key;
 
     printArray(array, arraySize);
-    cout << linearSearch(array, arraySize, key) << endl;
+    linearSearch(array, arraySize, key);
 
     system("pause");
     return 0;
